@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MyWeather";
+
+package weather;
+
+service WeatherService {
+	// Sends the a stream of weather data
+	rpc RequestStreamData(WeatherRequest) returns ( stream WeatherDataReply);
+	
+}
+
+// The request message containing the location
+message WeatherRequest {
+	string location = 1;
+}
+
+// The response message containing weather data
+message WeatherDataReply {
+	int32 temperature = 1;
+	int32 windspeed = 2;
+	int32 winddirection = 3;
+	string location = 4;
+}
+
