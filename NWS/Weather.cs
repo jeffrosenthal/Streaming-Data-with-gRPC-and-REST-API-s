@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -12,10 +11,8 @@ namespace NWS
         Task<int> GetWeather();
         Task<int> GetWeather(string lat, string longitude);
         Task<string> GetGridUrl();
-        string Lat { get; set; }
+        string Latitude { get; set; }
         string Longitude { get; set; }
-
-
     }
 
     public class Weather : IWeather
@@ -29,16 +26,16 @@ namespace NWS
             _httpClientFactory = factory;
             _client = _httpClientFactory.CreateClient();
         }
-        public string Lat { get; set; }
+        public string Latitude { get; set; }
         public string Longitude { get; set; }
 
-        public string Url => string.Format("https://api.weather.gov/points/{0},{1}", Lat, Longitude);
+        public string Url => string.Format("https://api.weather.gov/points/{0},{1}", Latitude, Longitude);
 
         public string GridUrl { get; set; }
 
-        public async Task<int> GetWeather(string lat, string longitude)
+        public async Task<int> GetWeather(string latitude, string longitude)
         {
-            Lat = lat;
+            Latitude = latitude;
             Longitude = longitude;
             GridUrl = await GetGridUrl();
             return await GetWeather();

@@ -23,7 +23,8 @@ namespace Server
             {
                 var weatherData = await GetWeatherData(request);
                 await responseStream.WriteAsync(weatherData);
-                await Task.Delay(5 * 1000);
+                _logger.LogInformation("Wait for the delay to pass");
+                await Task.Delay(5 * 1000);// Delay 5 seconds for testing. Change to (3600 * 1000) for hourly queries
                 
             }
         }
@@ -31,10 +32,10 @@ namespace Server
         private async Task<WeatherDataReply> GetWeatherData(WeatherRequest request)
         {
             var split = request.Location.Split(",");
-            var lat = split[0];
-            var longi = split[1];
+            var latitude = split[0];
+            var longitude = split[1];
 
-            var temp = await _weather.GetWeather(lat, longi);
+            var temp = await _weather.GetWeather(latitude, longitude);
 
             var record = new WeatherDataReply
             {

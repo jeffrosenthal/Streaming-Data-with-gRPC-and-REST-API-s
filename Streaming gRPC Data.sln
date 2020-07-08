@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{72C57D23-602D-47CC-93B4-94980D8710B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWS", "NWS\NWS.csproj", "{18EC3082-CE21-497F-A41B-A47192B31B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NWS", "NWS\NWS.csproj", "{18EC3082-CE21-497F-A41B-A47192B31B77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

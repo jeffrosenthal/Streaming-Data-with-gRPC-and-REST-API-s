@@ -16,8 +16,8 @@ namespace Client
 
             var cts = new CancellationTokenSource();
 
-            var weatherclient = new WeatherService.WeatherServiceClient(channel);
-            var streamingData = weatherclient.RequestStreamData(new WeatherRequest {Location = "27.9506,-82.4572"});
+            var weatherClient = new WeatherService.WeatherServiceClient(channel);
+            var streamingData = weatherClient.RequestStreamData(new WeatherRequest {Location = "27.9506,-82.4572"});
             try
             {
                 //Get the data as the server pushes it to us
